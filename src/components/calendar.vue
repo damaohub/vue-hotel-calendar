@@ -1,17 +1,15 @@
 <template>
 <div class="page page-with-subnavbar page-calendar">
-  <div class="navbar">
-    <slot name="navbarInner">
-    <div class="navbar-inner">  
+  <div class="fixed-header">
+    <slot name="navbar">
+    <div class="navbar">  
         <div class="left abs" @click="navBack($event)" >
-            <a href="#" class="back_arrow">&lsaquo;</a></div>
-        <div class="title center">请选择日期</div>    
+            <a href="#" class="back_arrow link">&lsaquo;</a></div>
+        <div class="title text-center">请选择日期</div>    
     </div>
     </slot> 
-    <div class="subnavbar">
-        <div class="subnavbar-inner calendar-week-header" >
+    <div class="weeks">
           <div class="calendar-week-day" v-for="(week,w) in weeks" :key="w">{{week}}</div>
-      </div>
     </div>
     
   </div>
