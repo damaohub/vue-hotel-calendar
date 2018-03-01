@@ -33,18 +33,18 @@
         
         </div>
       </div>
-      <div class="block-title">小改样式</div>
-      <div class="card">
+    <div class="block-title">单选（钟点房）</div>
+    <div class="card">
         <div class="card-content">
           <div class="list links-list no-ios-edges">
             <ul>
               <li>
-                <div class="item-link item-content" @click="isPopupOpen=true">
+                <div class="item-link item-content" @click="isPopupOpen1=true">
                   <div class="item-media"><img class="icon" src="./assets/date.png" alt=""></div>
                   <div class="item-inner item-cell">
                     <div class="item-row">
                       <div class="item-cell">
-                        <strong>02月16日 </strong>
+                        <strong>02月16日</strong>
                         <small>周五</small>
                         <small>入住</small>
                       </div>     
@@ -65,18 +65,25 @@
         
         </div>
       </div>
-      
     </div>
   <transition name="popup"> 
     <div class="popup" v-if="isPopupOpen">
-       <calendar class="customClass" :range="calendar2.range" :lunar="calendar2.lunar" :value="calendar2.value" :begin="calendar2.begin" :end="calendar2.end" @select="calendar2.select" @navBack="goBack()">
+       <calendar class="customClass" :range="calendar.range" :lunar="calendar.lunar" :value="calendar.value" :begin="calendar.begin" :end="calendar.end" @select="calendar.select" @navBack="goBack()">
+          <!-- <div slot="navbarInner">这是自定义主导航</div> -->
+      </calendar>
+      </div>   
+  </transition>
+
+  <transition name="popup"> 
+    <div class="popup" v-if="isPopupOpen1">
+       <calendar class="customClass"  :lunar="calendar1.lunar" :value="calendar1.value" :begin="calendar1.begin" :end="calendar1.end" @select="calendar1.select" @navBack="goBack()">
           <!-- <div slot="navbarInner">这是自定义主导航</div> -->
       </calendar>
       </div>   
   </transition>
   
-  <div :class="['popup-backdrop',isPopupOpen?'backdrop-in': '']" @click="isPopupOpen = !isPopupOpen"></div>
- 
+  <div :class="['popup-backdrop',isPopupOpen?'backdrop-in': '']" @click="isPopupOpen = false"></div>
+ <div :class="['popup-backdrop',isPopupOpen1?'backdrop-in': '']" @click="isPopupOpen1 = false"></div>
   </div>
 </template>
 <script>
@@ -84,7 +91,7 @@
     name: 'app',
     data () {
           return {
-                calendar2:{
+                calendar:{
                 range:true,
                 value:[[2018,1,5],[2018,1,6]], //默认日期
                 lunar:false, //显示农历
@@ -94,15 +101,27 @@
                      console.log(begin.toString(),end.toString());
                 }
             },
-            isPopupOpen: false
+            isPopupOpen: false,
+            calendar1:{
+                value:[2018,1,6], //默认日期
+                lunar:false, //显示农历
+                begin:[2017,11,16], //可选开始日期
+                end:[2018,3,16], //可选结束日期
+                select(value){
+                     console.log(value.toString());
+                }
+            },
+            isPopupOpen1: false
           }
     },
     methods: {
       openPopup () {
        this.isPopupOpen = !this.isPopupOpen;
+       this.isPopupOpen1 = !this.isPopupOpen1;
       },
       goBack(){
         this.isPopupOpen = false;
+        this.isPopupOpen1 = false;
       }
     }
 
