@@ -93,10 +93,10 @@
           return {
                 calendar:{
                 range:true,
-                value:[[2018,1,5],[2018,1,6]], //默认日期
+                //value:[[2018,1,5],[2018,1,6]], //默认日期
                 lunar:false, //显示农历
                 begin:[2017,11,16], //可选开始日期
-                end:[2018,3,16], //可选结束日期
+                end:[2018,5,16], //可选结束日期
                 select(begin,end){
                      console.log(begin.toString(),end.toString());
                 }

@@ -49,7 +49,7 @@
       value: {
         type: Array,
         default: function(){
-          return []
+          return [new Date().getFullYear(),new Date().getMonth()+1,new Date().getDate()]
         }
       },
       // 开始选择日期
