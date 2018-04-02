@@ -8,16 +8,15 @@
 
 | Attr. Name | Description | Required | Default Value |
 |-----|-----|-----|-----|
-| onRefresh | pull to refresh callback | N | - |
-| onInfinite | infinite loading callback | N | - |
-| onInfinite | infinite loading callback | N | - |
-| refreshText | tips of `pull-to-refresh` | N | 下拉刷新 |
-| noDataText | tips of `no-more-data` when `infinite-loading` finished | N | 没有更多数据 |
-| width | scroller container width | N | `100%` |
-| height | scroller container height | N | `100%` |
-| snapping | enable snapping mode | N | `false` |
-| snappingWidth | snapping width | N | 100 (stand for 100px) |
-| snappingHeight | snapping height | N | 100 |
-| refreshLayerColor | text color of `pull-to-refresh` layer | N | #AAA |
-| loadingLayerColor | text color of `infinite-loading` layer | N | #AAA |
-| minContentHeight | min content height (px) of `scroll-content` | N | 0 |
+| multi | 是否多选 | N | false|
+| range | 是否连续范围选择| N | false|
+| value | 默认日期 | Y | []|
+| begin | 开始选择日期 | N | 今天 |
+| end | 结束选择日期 | N | [] |
+| count | 渲染的月数 | N | Number | |果存在begin和end,从开始选择的日期begin的当月开始算起，默认到结束日期end之间的月数|
+| zero | 是否小于10补零 | N | false | 
+| disabled | 屏蔽的日期 | N | [] |
+| lunar | 是否显示农历 | N | false |
+| weeks | 自定义星期名称 | N | "zh-cn"?['日', '一', '二', '三', '四', '五', '六']:['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']|
+| months | 自定义月份| N | "zh-cn"?['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月']:['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']|
+| events | 自定义事件 | N | {} |
